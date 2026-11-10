@@ -1,0 +1,20 @@
+services:
+  tunvn-adapter:
+    image: ghcr.io/pobeno17/tunvn-dujiao-adapter:latest
+    container_name: tunvn-adapter
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      LISTEN_ADDR: 0.0.0.0:8080
+      DATA_FILE: /data/orders.json
+    volumes:
+      - ./data:/data
+    ports:
+      # Bound to loopback on purpose: expose it through your reverse proxy.
+      - "127.0.0.1:8080:8080"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

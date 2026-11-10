@@ -1,0 +1,4 @@
+# Ignore local runtime data and build artifacts.
+data/
+*.exe
+.env

@@ -1,0 +1,7 @@
+.git
+.gitignore
+data
+*.exe
+.env
+README.md
+docker-compose.yml
